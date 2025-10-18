@@ -31,7 +31,7 @@ export const landingPageStyles = {
   main: "pt-24",
 
   // Hero section
-  heroSection: "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20",
+  heroSection: "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10",
   heroGrid: "flex flex-wrap justify-between gap-10 lg:gap-12 items-center",
   heroLeft: "space-y-8",
   tagline: "inline-flex items-center gap-2 sm:gap-3 px-4 py-2 bg-gradient-to-r from-violet-100 to-fuchsia-100 border border-violet-200 text-violet-700 rounded-full font-bold text-xs sm:text-sm",
@@ -117,7 +117,6 @@ export const landingPageStyles = {
   footerHeart: "bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent",
   footerLink: "hover:text-purple-400 underline"
 };
-
 export const dashboardStyles = {
   // Container
   container: "container mx-auto px-4 py-6",
