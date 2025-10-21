@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { UserContext } from "../context/AppContext"
 import { useNavigate } from "react-router"
 import { cardStyles } from "../assets/dummystyle"
+import { Award, Clock, Edit, Trash2, TrendingDown, Zap } from "lucide-react"
 
 export const ProfileInfoCard=()=>{
   const navigate=useNavigate()
@@ -23,7 +24,7 @@ export const ProfileInfoCard=()=>{
           <div className={cardStyles.profileName}>
             {user.name||''}
           </div>
-          <button className={cardStyles.buttonIcon}
+          <button className={cardStyles.logoutButton}
           onClick={handleLogout}>
             退出登录
           </button>
@@ -32,3 +33,5 @@ export const ProfileInfoCard=()=>{
     )
   )
 }
+
+

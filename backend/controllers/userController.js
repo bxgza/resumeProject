@@ -55,7 +55,7 @@ export const loginUser=async(req,res)=>{
     }
     const isMatch=await bcrypt.compare(password,user.password)
     if(!isMatch){
-      return res.status(400).json({message:'邮箱或密码错误'})
+      return res.status(400).json({message:`${email,password}邮箱密码错误`})
     }
 
     res.status(200).json({

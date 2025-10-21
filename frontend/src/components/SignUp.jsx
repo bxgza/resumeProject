@@ -6,7 +6,7 @@ import { validateEmail } from "../utils/helper"
 import axiosInstance from "../utils/axiosInstance"
 import { API_PATHS } from "../utils/apiPath"
 import { Input } from "./input"
-const SignUp=(setCurrentPage)=>{
+const SignUp=({setCurrentPage})=>{
   const [fullName,setFullName]=useState('')
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
@@ -21,7 +21,7 @@ const SignUp=(setCurrentPage)=>{
       setError('请填入姓名')
       return
     }
-    if(!validateEmail){
+    if(!validateEmail(email)){
       setError('请输入正确邮箱地址')
       return
     }
@@ -32,12 +32,12 @@ const SignUp=(setCurrentPage)=>{
     setError('')
     try{
       const response=await axiosInstance.post(API_PATHS.AUTH.REGISTER,{
-        fullName,email,password
+        name:fullName,email,password
       })
       const {token}=response.data
       
       if(token){
-        localStorage.setItem(token)
+        localStorage.setItem('token',token)
         updateUser(response.data)
         navigate('/dashboard')
       }
@@ -65,13 +65,15 @@ const SignUp=(setCurrentPage)=>{
         placeholder='输入密码'
         label='密码'
         type="password"/>
-      </form>
-      {error &&(
-        <div className={styles.errorMessage}>{error}</div>
-      )}
+        {error &&(
+          <div className={styles.errorMessage}>{error}</div>
+        )}
       <button className={styles.signupSubmit} type="submit">
         注册
       </button>
+
+      </form>
+      
 
       <p className={styles.switchText}>
         已经有账号了？{' '}
